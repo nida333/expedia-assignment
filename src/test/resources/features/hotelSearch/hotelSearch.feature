@@ -1,6 +1,6 @@
+@e2e
 Feature: Hotel Search
 
-  @testcase:1
   Scenario Outline: Hotel search form is displayed on the homepage
     Given the user opens 'Home' page
     And the user is on the 'Home' page
@@ -15,7 +15,6 @@ Feature: Hotel Search
       | Destinations and properties around the world... | Check in     | Check out     | Search           |
 
 
-  @testcase:2
   Scenario Outline: Number of nights should be updated when the date is changed on the form
     Given the user opens 'Home' page
     And the user is on the 'Home' page
@@ -29,7 +28,6 @@ Feature: Hotel Search
 
 
 
-  @testcase:3
   Scenario Outline: Hotel listing page is displayed when valid date and destination is submitted from homepage
     Given the user opens 'Home' page
     And the user is on the 'Home' page
@@ -46,7 +44,6 @@ Feature: Hotel Search
       | London      | 3      | 3      |
 
 
-  @testcase: 4
   Scenario Outline: Hotel details on the listing page should match the hotel details page
     Given the user opens 'Home' page
     And the user is on the 'Home' page

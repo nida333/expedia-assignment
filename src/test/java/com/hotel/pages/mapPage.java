@@ -39,13 +39,13 @@ public class mapPage extends PageObject {
     private WebElementFacade infoBoxTitle;
 
     public boolean is_map_iframe_displayed() {
-        mapIframe.isDisplayed();
-        return true;
+        waitFor(mapIframe);
+        return mapIframe.isDisplayed();
     }
 
     public boolean is_zoom_in_btn_displayed() {
-        zooninBtn.isDisplayed();
-        return true;
+        waitFor(zooninBtn);
+        return zooninBtn.isDisplayed();
     }
 
     public String get_zoom_btn_text() {
@@ -60,8 +60,7 @@ public class mapPage extends PageObject {
     }
 
     public boolean is_toggle_legend_btn_displayed() {
-        toggleLegendBtn.isDisplayed();
-        return true;
+        return toggleLegendBtn.isDisplayed();
     }
 
     public void click_toggle_legend_button() {
@@ -69,8 +68,8 @@ public class mapPage extends PageObject {
     }
 
     public boolean is_availaibility_filters_displayed() {
-        availabilityLegends.isDisplayed();
-        return true;
+        waitFor(availabilityLegends);
+        return availabilityLegends.isDisplayed();
     }
 
     public void click_does_not_match_criteria_legend_checkbox() {
@@ -84,8 +83,8 @@ public class mapPage extends PageObject {
     }
 
     public boolean is_property_detail_card_displayed() {
-        propertyDetailCard.isDisplayed();
-        return true;
+        waitFor(propertyDetailCard);
+        return propertyDetailCard.isDisplayed();
     }
 
     public String get_hotel_name_from_property_card() {
@@ -97,8 +96,8 @@ public class mapPage extends PageObject {
     }
 
     public boolean is_info_box_title() {
-        infoBoxTitle.isDisplayed();
-        return true;
+        waitFor(infoBoxTitle);
+        return infoBoxTitle.isDisplayed();
     }
 
     public void click_info_box_title() {

@@ -21,4 +21,5 @@ If you want to use local Chrome / Firefox then you need the drivers for these.  
 * run
 	`mvn clean verify`
 * Test reports can be accessed by running
+    `mvn serenity:aggregate` and then
     `open target/site/serenity/index.html`

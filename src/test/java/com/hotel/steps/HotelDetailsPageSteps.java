@@ -14,7 +14,7 @@ public class HotelDetailsPageSteps {
     public void compare_hotel_info_from_list_view(Hotel expectedHotel){
         String hotelName = hotelDetailsPage.getHotelName();
         String hotelPrice = hotelDetailsPage.getHotelPrice();
-        Hotel actualHotel = new Hotel(hotelName, hotelPrice);
-        assertThat(actualHotel, is(expectedHotel));
+        assertThat(hotelName, is(expectedHotel.getName()));
+        assertThat(hotelPrice, is(expectedHotel.getPrice()));
     }
 }

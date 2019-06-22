@@ -41,18 +41,17 @@ public class HotelListingPage extends CommonPageObject {
 
 
     public boolean areSortingOptionsDisplayed(){
-        sortingDiv.isDisplayed();
-        return true;
+        waitFor(sortingDiv);
+        return sortingDiv.isDisplayed();
     }
 
     public boolean areFiltersDisplayed(){
-        filterDiv.isDisplayed();
-        return true;
+        waitFor(filterDiv);
+        return filterDiv.isDisplayed();
     }
 
     public boolean isHotelListDisplayed(){
-        hotelListing.isDisplayed();
-        return true;
+        return hotelListing.isDisplayed();
     }
 
     public void waitForHotelListToBeDisplayed(){
@@ -60,8 +59,7 @@ public class HotelListingPage extends CommonPageObject {
     }
 
     public boolean isViewOnMapDdisplayed(){
-        viewOnMapBtn.isDisplayed();
-        return true;
+        return viewOnMapBtn.isDisplayed();
     }
 
     public String getHotelId(){

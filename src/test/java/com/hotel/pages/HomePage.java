@@ -65,37 +65,38 @@ public class HomePage extends CommonPageObject {
     }
 
     public boolean isWidgetDisplayed() {
-        widgetOverlay.isDisplayed();
-        return true;
+        return widgetOverlay.isVisible();
     }
 
     public void clickWidgetCloseButton() {
-        widgetcloseBtn.click();
+        if(widgetcloseBtn.isVisible()){
+            widgetcloseBtn.click();
+        }
     }
 
     public boolean isSearchFormDisplayed() {
-        searchForm.isDisplayed();
-        return true;
+        waitFor(searchForm);
+        return searchForm.isDisplayed();
     }
 
     public boolean isSearchButtonDisplayed() {
-        searchButton.isDisplayed();
-        return true;
+        waitFor(searchButton);
+        return searchButton.isDisplayed();
     }
 
     public boolean isDestinationTextFieldDisplayed() {
-        destinationSearchInput.isDisplayed();
-        return true;
+        waitFor(destinationSearchInput);
+        return destinationSearchInput.isDisplayed();
     }
 
     public boolean isCheckinDateFieldDisplayed() {
-        checkinDateInput.isDisplayed();
-        return true;
+        waitFor(checkinDateInput);
+        return checkinDateInput.isDisplayed();
     }
 
     public boolean isCheckoutDateFieldDisplayed() {
-        checkoutDateInput.isDisplayed();
-        return true;
+        waitFor(checkoutDateInput);
+        return checkoutDateInput.isDisplayed();
     }
 
     public String searchButtonText() {

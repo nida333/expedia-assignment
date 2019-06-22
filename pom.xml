@@ -19,7 +19,9 @@
         <serenity.cucumber.version>1.9.12</serenity.cucumber.version>
         <!-- see serenity.properties file instead <webdriver.driver>firefox</webdriver.driver> -->
         <slf4j.version>1.7.25</slf4j.version>
+        <tags>e2e</tags>
         <logback.version>1.2.3</logback.version>
+        <webdriver.base.url>https://uk.hotels.com/</webdriver.base.url>
     </properties>
 
 
@@ -82,7 +84,9 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.0</version>
                     <configuration>
-                        <skip>true</skip>
+                        <includes>
+                            <include>com.hotel.UITestSuite.java</include>
+                        </includes>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -120,6 +124,9 @@
                     <groupId>net.serenity-bdd.maven.plugins</groupId>
                     <artifactId>serenity-maven-plugin</artifactId>
                     <version>${serenity.version}</version>
+                    <configuration>
+                        <tags>${tags}</tags>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>serenity-reports</id>
