@@ -1,0 +1,92 @@
+package com.hotel.pages;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
+
+import java.util.List;
+
+import static java.time.temporal.ChronoUnit.SECONDS;
+
+
+public class HotelListingPage extends CommonPageObject {
+
+    protected final static String EXPECTED_PAGE_TITLE = "Hotels.com - hotels in";
+
+
+    @FindBy(id = "sort")
+    private WebElementFacade sortingDiv;
+
+    @FindBy(id = "filters")
+    private WebElementFacade filterDiv;
+
+    @FindBy(id = "listings")
+    private WebElementFacade hotelListing;
+
+    @FindBy(css = ".listings .hotel")
+    private List<WebElementFacade> hotels;
+
+    @FindBy(id = "search-map-link")
+    private WebElementFacade viewOnMapBtn;
+
+    private By hotelName = By.className("property-name-link");
+    private By hotelPrice = By.className("price-link");
+    private By choseHotelButton = By.className("cta");
+
+
+
+    public HotelListingPage() {
+        super(EXPECTED_PAGE_TITLE);
+    }
+
+
+    public boolean areSortingOptionsDisplayed(){
+        sortingDiv.isDisplayed();
+        return true;
+    }
+
+    public boolean areFiltersDisplayed(){
+        filterDiv.isDisplayed();
+        return true;
+    }
+
+    public boolean isHotelListDisplayed(){
+        hotelListing.isDisplayed();
+        return true;
+    }
+
+    public void waitForHotelListToBeDisplayed(){
+        withTimeoutOf(10, SECONDS).waitFor(hotelListing);
+    }
+
+    public boolean isViewOnMapDdisplayed(){
+        viewOnMapBtn.isDisplayed();
+        return true;
+    }
+
+    public String getHotelId(){
+        WebElementFacade hotel = hotels.get(0);
+        return hotel.getAttribute("data-hotel-id");
+    }
+
+    public String getHotelName(String hotelId){
+        WebElementFacade hotel = hotelListing.findBy("[data-hotel-id='"+ hotelId +"']");
+        return hotel.findElement(hotelName).getText();
+    }
+
+    public String getHotelPrice(String hotelId){
+        WebElementFacade hotel = hotelListing.findBy("[data-hotel-id='"+ hotelId +"']");
+        return hotel.findElement(hotelPrice).getText().replace("£","");
+    }
+
+    public void clickHotel(String hotelId){
+        WebElementFacade hotel = hotelListing.findBy("[data-hotel-id='"+ hotelId +"']");
+        hotel.findElement(choseHotelButton).click();
+    }
+
+    public boolean clickViewOnMap(){
+        viewOnMapBtn.isClickable();
+        viewOnMapBtn.click();
+        return true;
+    }
+}

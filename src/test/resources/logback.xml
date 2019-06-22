@@ -1,0 +1,19 @@
+<!DOCTYPE configuration>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="uk.co.tribalddb" level="DEBUG" />
+  <logger name="uk.co.vw" level="DEBUG" />
+  <logger name="org.openqa" level="WARN" />
+  <logger name="cucumber.api" level="INFO" />
+  <logger name="net.serenitybdd.core" level="INFO" />
+  
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>

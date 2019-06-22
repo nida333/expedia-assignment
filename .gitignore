@@ -1,0 +1,21 @@
+# Eclipse artefacts:
+.settings
+**/.settings
+**/.project
+.classpath
+**/.classpath
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Java artefacts
+target/
+
+.DS_Store
+**/.DS_Store
+
+# Excel temporary
+~$*.xls*
+catalina.base_IS_UNDEFINED/
