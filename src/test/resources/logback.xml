@@ -7,13 +7,13 @@
     </encoder>
   </appender>
 
-  <logger name="uk.co.tribalddb" level="DEBUG" />
-  <logger name="uk.co.vw" level="DEBUG" />
+  <logger name="com.hotel" level="DEBUG" />
+  <logger name="com.hotel.tests" level="DEBUG" />
   <logger name="org.openqa" level="WARN" />
   <logger name="cucumber.api" level="INFO" />
   <logger name="net.serenitybdd.core" level="INFO" />
   
-  <root level="INFO">
+  <root level="INFO" >
     <appender-ref ref="STDOUT" />
   </root>
 </configuration>

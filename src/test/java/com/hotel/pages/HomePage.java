@@ -131,7 +131,7 @@ public class HomePage extends CommonPageObject {
 
     public void closeDatePicker() {
         Boolean visible = datePickerCloseButton.isVisible();
-        if(visible){
+        if (visible) {
             datePickerCloseButton.click();
             checkoutDateInput.click();
             datePickerCloseButton.click();

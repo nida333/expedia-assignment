@@ -9,7 +9,6 @@ public class CommonStepDefinitions {
     @Steps
     CommonSteps user;
 
-
     @Given("the user opens '(.*)' page$")
     public void the_user_opens_website(String pageName) {
         user.browses_to_the_page(pageName);

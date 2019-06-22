@@ -48,60 +48,60 @@ public class mapPage extends PageObject {
         return true;
     }
 
-    public String get_zoom_btn_text(){
-            return zooninBtn.getText();
+    public String get_zoom_btn_text() {
+        return zooninBtn.getText();
     }
 
-    public void click_zoom_btn(){
+    public void click_zoom_btn() {
 
         //keep clicking it until legends are displayed
         //and whole page is loaded
         zooninBtn.click();
     }
 
-    public boolean is_toggle_legend_btn_displayed(){
+    public boolean is_toggle_legend_btn_displayed() {
         toggleLegendBtn.isDisplayed();
         return true;
     }
 
-    public void click_toggle_legend_button(){
+    public void click_toggle_legend_button() {
         toggleLegendBtn.click();
     }
 
-    public boolean is_availaibility_filters_displayed(){
+    public boolean is_availaibility_filters_displayed() {
         availabilityLegends.isDisplayed();
         return true;
     }
 
-    public void click_does_not_match_criteria_legend_checkbox(){
+    public void click_does_not_match_criteria_legend_checkbox() {
         doesNotMatchLegend.isDisplayed();
         doesNotMatchLegend.click();
     }
 
-    public void click_not_available_legend_checkbox(){
+    public void click_not_available_legend_checkbox() {
         notAvailableLegend.isDisplayed();
         notAvailableLegend.click();
     }
 
-    public boolean is_property_detail_card_displayed(){
+    public boolean is_property_detail_card_displayed() {
         propertyDetailCard.isDisplayed();
         return true;
     }
 
-    public String get_hotel_name_from_property_card(){
+    public String get_hotel_name_from_property_card() {
         return hotelNamePropertyCard.getText();
     }
 
-    public String get_room_price_from_property_card(){
+    public String get_room_price_from_property_card() {
         return roomPricePropertyCard.getText();
     }
 
-    public boolean is_info_box_title(){
+    public boolean is_info_box_title() {
         infoBoxTitle.isDisplayed();
         return true;
     }
 
-    public void click_info_box_title(){
+    public void click_info_box_title() {
         infoBoxTitle.click();
     }
 }

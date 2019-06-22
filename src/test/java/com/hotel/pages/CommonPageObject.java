@@ -34,10 +34,10 @@ public abstract class CommonPageObject extends PageObject {
         driver.switchTo().window(tabs.get(1));
     }
 
-    protected void selectDate(WebElementFacade element, String value ) {
+    protected void selectDate(WebElementFacade element, String value) {
         WebDriver driver = getDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value='"+value+"'", element);
+        js.executeScript("arguments[0].value='" + value + "'", element);
         js.executeScript("arguments[0].dispatchEvent(new Event('change'));", element);
 
     }

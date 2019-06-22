@@ -76,7 +76,7 @@ public class HotelListingPage extends CommonPageObject {
 
     public String getHotelPrice(String hotelId){
         WebElementFacade hotel = hotelListing.findBy("[data-hotel-id='"+ hotelId +"']");
-        return hotel.findElement(hotelPrice).getText().replace("£","");
+        return hotel.findElement(hotelPrice).getText().replace("£", "");
     }
 
     public void clickHotel(String hotelId){

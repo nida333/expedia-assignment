@@ -18,12 +18,12 @@ public class HotelDetailsPage extends CommonPageObject {
         super(EXPECTED_PAGE_TITLE);
     }
 
-    public String getHotelName(){
+    public String getHotelName() {
         return hotelName.getText();
     }
 
-    public String getHotelPrice(){
-        return pricePerNight.getText().replace("£","");
+    public String getHotelPrice() {
+        return pricePerNight.getText().replace("£", "");
     }
 
 }
