@@ -53,7 +53,7 @@ Feature: Hotel Search
     And hotel list is displayed
     When the user selects a hotel from the list
     Then the user is on the 'Hotel Details' page
-    And the hotel details is same as the listing page
+    And the hotel details is same as the previous page
 
     Examples:
       | destination | months | nights |

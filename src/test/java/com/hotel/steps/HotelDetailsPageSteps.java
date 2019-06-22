@@ -11,7 +11,7 @@ public class HotelDetailsPageSteps {
     HotelDetailsPage hotelDetailsPage;
     SoftAssertions softAssertion = new SoftAssertions();
 
-    public void compare_hotel_info_from_list_view(Hotel expectedHotel){
+    public void compareHotelInfoFromListView(Hotel expectedHotel){
         String hotelName = hotelDetailsPage.getHotelName();
         String hotelPrice = hotelDetailsPage.getHotelPrice();
         assertThat(hotelName, is(expectedHotel.getName()));

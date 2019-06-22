@@ -31,79 +31,79 @@ public class HotelSearchStepsDefinitions {
 
     @And("^search form is displayed$")
     public void search_Form_Is_Displayed() {
-        homePageSteps.close_widget_overlay_if_displayed();
-        homePageSteps.verify_search_form_is_displayed();
-        homePageSteps.verify_destination_field_is_displayed();
-        homePageSteps.verify_checkin_date_input_is_displayed();
-        homePageSteps.verify_checkout_date_input_is_displayed();
-        homePageSteps.verify_search_button_is_displayed();
+        homePageSteps.closeWidgetOverlayIfDisplayed();
+        homePageSteps.verifySearchFormIsDisplayed();
+        homePageSteps.verifyDestinationFieldIsDisplayed();
+        homePageSteps.verifyCheckinDateInputIsDisplayed();
+        homePageSteps.verifyCheckoutDateInputIsDisplayed();
+        homePageSteps.verifySearchButtonIsDisplayed();
     }
 
     @And("destination search field has label '(.*)'")
     public void destination_SearchField_Is_Displayed_With_Label(String expectedDestinationLabel) {
-        homePageSteps.compare_destination_label(expectedDestinationLabel);
+        homePageSteps.compareDestinationLabel(expectedDestinationLabel);
     }
 
     @And("check in date field has label '(.*)'")
     public void checkIn_Date_Field_Is_Displayed_l(String expectedCheckinFieldLabel) {
-        homePageSteps.compare_checkin_date_label(expectedCheckinFieldLabel);
+        homePageSteps.compareCheckinDateLabel(expectedCheckinFieldLabel);
     }
 
     @And("checkout date field has label '(.*)'")
     public void checkoutDateFieldIsDisplayedWithLabelAsCheckoutLabel(String expectedCheckoutFieldLabel) {
-        homePageSteps.compare_checkout_date_label(expectedCheckoutFieldLabel);
+        homePageSteps.compareCheckoutDateLabel(expectedCheckoutFieldLabel);
     }
 
     @And("submit search button has text '(.*)'")
     public void submitSearchButtonHasText(String expectedSearchButtonText) {
-        homePageSteps.compare_search_button_text(expectedSearchButtonText);
+        homePageSteps.compareSearchButtonText(expectedSearchButtonText);
     }
 
     @Then("number of nights should be '(.*)'")
     public void numberOfNightsShouldBeDays(String nights) {
-        homePageSteps.verify_number_of_nights(nights);
+        homePageSteps.verifyNumberOfNights(nights);
     }
 
     @When("^user enters destination '(.*)'")
     public void user_Enters_Destination(String destination) {
-        homePageSteps.enters_destination(destination);
-        homePageSteps.selects_destination_from_dropdown();
+        homePageSteps.entersDestination(destination);
+        homePageSteps.selectsDestinationFromDropdown();
     }
 
     @And("user selects checkin date '(.*)' months from now and checkout date '(.*)' days from checkin date")
     public void userSelectsCheckinAndCheckoutDates(int months, int days) {
         String checkinDate = utils.addMonths(months);
         String checkoutDate = utils.addMonthAndDays(months, days);
-        homePageSteps.enters_checkin_date(checkinDate);
-        homePageSteps.enters_checkout_date(checkoutDate);
-        homePageSteps.closes_date_picker();
+        homePageSteps.entersCheckinDate(checkinDate);
+        homePageSteps.entersCheckoutDate(checkoutDate);
+        homePageSteps.closesDatePicker();
     }
 
     @And("user clicks on search button")
     public void tapOnSearchButton() {
-        homePageSteps.clicks_submit_button();
+        homePageSteps.clicksSubmitButton();
     }
 
 
     @Then("hotel listing page is displayed")
     public void hotel_Listing_Page_Is_Displayed() {
-        hotelListSteps.filter_div_is_displayed();
-        hotelListSteps.sorting_div_is_displayed();
+        hotelListSteps.filterDivIsDisplayed();
+        hotelListSteps.sortingDivIsDisplayed();
     }
 
     @And("view on map button is also displayed")
     public void view_On_Map_Button_Is_Displayed() {
-        hotelListSteps.verifies_view_on_map_button_is_displayed();
+        hotelListSteps.verifiesViewOnMapButtonIsDisplayed();
     }
 
     @When("user taps on view on map button")
     public void user_Taps_On_View_On_Map_Button() {
-        hotelListSteps.clicks_view_on_map_button();
+        hotelListSteps.clicksViewOnMapButton();
     }
 
     @And("hotel list is displayed")
     public void hotelListIsDisplayed() {
-        hotelListSteps.hotel_list_is_displayed();
+        hotelListSteps.hotelListIsDisplayed();
     }
 
     @Given("the user performed a hotel search to '(.*)' from '(.*)' for '(.*)'")
@@ -116,12 +116,12 @@ public class HotelSearchStepsDefinitions {
 
     @When("the user selects a hotel from the list")
     public void theUserSelectsAHotelFromTheList() {
-       currentHotel = hotelListSteps.select_the_first_hotel();
+       currentHotel = hotelListSteps.selectTheFirstHotel();
     }
 
-    @And("the hotel details is same as the listing page")
-    public void theHotelDetailsIsSameAsTheListingPage() {
-        hotelDetailsSteps.compare_hotel_info_from_list_view(currentHotel);
+    @And("the hotel details is same as the previous page")
+    public void theHotelDetailsIsSameAsThePreviousPage() {
+        hotelDetailsSteps.compareHotelInfoFromListView(currentHotel);
 
     }
 }

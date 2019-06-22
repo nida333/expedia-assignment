@@ -1,10 +1,13 @@
 package com.hotel.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-public class mapPage extends PageObject {
+public class HotelMapPage extends CommonPageObject {
+
+    protected final static String EXPECTED_PAGE_TITLE = "Hotels.com - hotels";
+
+
     @FindBy(xpath = "//*[@id='map']/div[1]/div/iframe")
     private WebElementFacade mapIframe;
 
@@ -38,69 +41,74 @@ public class mapPage extends PageObject {
     @FindBy(className = "map-infobox-title")
     private WebElementFacade infoBoxTitle;
 
-    public boolean is_map_iframe_displayed() {
+    public HotelMapPage() {
+        super(EXPECTED_PAGE_TITLE);
+    }
+
+
+    public boolean isMapIframeDisplayed() {
         waitFor(mapIframe);
         return mapIframe.isDisplayed();
     }
 
-    public boolean is_zoom_in_btn_displayed() {
+    public boolean isZoomInButtonDisplayed() {
         waitFor(zooninBtn);
         return zooninBtn.isDisplayed();
     }
 
-    public String get_zoom_btn_text() {
+    public String getZoomInButtonText() {
         return zooninBtn.getText();
     }
 
-    public void click_zoom_btn() {
+    public void clickZoomButton() {
 
         //keep clicking it until legends are displayed
         //and whole page is loaded
         zooninBtn.click();
     }
 
-    public boolean is_toggle_legend_btn_displayed() {
+    public boolean isToggleLegendBtnDisplayed() {
         return toggleLegendBtn.isDisplayed();
     }
 
-    public void click_toggle_legend_button() {
+    public void clickToggleLegendButton() {
         toggleLegendBtn.click();
     }
 
-    public boolean is_availaibility_filters_displayed() {
+    public boolean isAvailaibilityFiltersDisplayed() {
         waitFor(availabilityLegends);
         return availabilityLegends.isDisplayed();
     }
 
-    public void click_does_not_match_criteria_legend_checkbox() {
+    public void clickDoesNotMatchCriteriaLegendCheckbox() {
         doesNotMatchLegend.isDisplayed();
         doesNotMatchLegend.click();
     }
 
-    public void click_not_available_legend_checkbox() {
+    public void clickNotAvailableLegendCheckbox() {
         notAvailableLegend.isDisplayed();
         notAvailableLegend.click();
     }
 
-    public boolean is_property_detail_card_displayed() {
+    public boolean isPropertyDetailCardDisplayed() {
         waitFor(propertyDetailCard);
         return propertyDetailCard.isDisplayed();
     }
 
-    public String get_hotel_name_from_property_card() {
+    public String getHotelNameFromPropertyCard() {
         return hotelNamePropertyCard.getText();
     }
 
-    public String get_room_price_from_property_card() {
+    public String getRoomPriceFromPropertyCard() {
         return roomPricePropertyCard.getText();
     }
 
-    public boolean is_info_box_title() {
+    public boolean isInfoBoxTitle() {
         waitFor(infoBoxTitle);
         return infoBoxTitle.isDisplayed();
     }
 
-    public void click_info_box_title() {
+    public void clickInfoBoxTitle() {
         infoBoxTitle.click();
     }
 }

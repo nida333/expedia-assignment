@@ -13,92 +13,92 @@ public class HomePageSteps {
     SoftAssertions softAssertion = new SoftAssertions();
 
    @Step
-   public void close_widget_overlay_if_displayed(){
+   public void closeWidgetOverlayIfDisplayed(){
        if(HomePage.isWidgetDisplayed() == true){
            HomePage.clickWidgetCloseButton();
        }
    }
 
     @Step
-    public void verify_search_form_is_displayed() {
+    public void verifySearchFormIsDisplayed() {
        assertThat(HomePage.isSearchFormDisplayed(), is(true));
     }
 
     @Step
-    public void compare_search_button_text(String expectedSearchButtonText) {
+    public void compareSearchButtonText(String expectedSearchButtonText) {
         softAssertion.assertThat(HomePage.searchButtonText()).isEqualTo(expectedSearchButtonText);
     }
 
     @Step
-    public void verify_search_button_is_displayed() {
+    public void verifySearchButtonIsDisplayed() {
 
        assertThat(HomePage.isSearchButtonDisplayed(), is(true));
     }
 
     @Step
-    public void compare_destination_label(String expectedDestinationLabel) {
+    public void compareDestinationLabel(String expectedDestinationLabel) {
         softAssertion.assertThat(HomePage.destinationLabelText()).isEqualTo(expectedDestinationLabel);
     }
 
     @Step
-    public void verify_destination_field_is_displayed() {
+    public void verifyDestinationFieldIsDisplayed() {
         assertThat(HomePage.isDestinationTextFieldDisplayed(), is(true));
     }
 
     @Step
-    public void compare_checkin_date_label(String expectedCheckinLabel) {
+    public void compareCheckinDateLabel(String expectedCheckinLabel) {
         softAssertion.assertThat(HomePage.checkinDateLabelText()).isEqualTo(expectedCheckinLabel);
     }
 
     @Step
-    public void verify_checkin_date_input_is_displayed() {
+    public void verifyCheckinDateInputIsDisplayed() {
         assertThat(HomePage.isCheckinDateFieldDisplayed(), is(true));
     }
 
     @Step
-    public void compare_checkout_date_label(String expectedCheckoutLabel) {
+    public void compareCheckoutDateLabel(String expectedCheckoutLabel) {
         softAssertion.assertThat(HomePage.checkoutDateLabelText()).isEqualTo(expectedCheckoutLabel);
     }
 
     @Step
-    public void verify_checkout_date_input_is_displayed() {
+    public void verifyCheckoutDateInputIsDisplayed() {
         assertThat(HomePage.isCheckoutDateFieldDisplayed(), is(true));
     }
 
     @Step
-    public void enters_destination(String destination) {
+    public void entersDestination(String destination) {
 
-       HomePage.enter_destination(destination);
+       HomePage.enterDestination(destination);
     }
 
     @Step
-    public void selects_destination_from_dropdown() {
+    public void selectsDestinationFromDropdown() {
 
-       HomePage.click_destination_from_drop_down();
+       HomePage.clickDestinationFromDropDown();
     }
 
     @Step
-    public void enters_checkin_date(String checkinDate){
+    public void entersCheckinDate(String checkinDate){
         HomePage.enterCheckinDate(checkinDate);
     }
 
     @Step
-    public void enters_checkout_date(String checkoutDate) {
+    public void entersCheckoutDate(String checkoutDate) {
         HomePage.enterCheckoutDate(checkoutDate);
     }
 
     @Step
-    public void closes_date_picker(){
+    public void closesDatePicker(){
         HomePage.closeDatePicker();
     }
 
     @Step
-    public void verify_number_of_nights(String expectedNights) {
+    public void verifyNumberOfNights(String expectedNights) {
         assertThat(HomePage.numberOfNightsText(), is(expectedNights));
     }
 
     @Step
-    public void clicks_submit_button(){
+    public void clicksSubmitButton(){
         HomePage.clickSubmitSearch();
 
     }

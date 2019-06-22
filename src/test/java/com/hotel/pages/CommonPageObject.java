@@ -21,7 +21,7 @@ public abstract class CommonPageObject extends PageObject {
     }
 
 
-    protected void scroll_to_element(WebElementFacade element) {
+    protected void scrollToElement(WebElementFacade element) {
         WebDriver driver = getDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);

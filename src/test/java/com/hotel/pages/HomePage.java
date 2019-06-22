@@ -116,12 +116,12 @@ public class HomePage extends CommonPageObject {
     }
 
 
-    public void enter_destination(String destination) {
+    public void enterDestination(String destination) {
         destinationSearchInput.clear();
         destinationSearchInput.sendKeys(destination);
     }
 
-    public void click_destination_from_drop_down() {
+    public void clickDestinationFromDropDown() {
 
         withTimeoutOf(5, SECONDS).waitFor(destinationDropDownvalue).click();
     }

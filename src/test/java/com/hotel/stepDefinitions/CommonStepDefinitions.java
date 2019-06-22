@@ -11,11 +11,11 @@ public class CommonStepDefinitions {
 
     @Given("the user opens '(.*)' page$")
     public void the_user_opens_website(String pageName) {
-        user.browses_to_the_page(pageName);
+        user.browsesToThePage(pageName);
     }
 
     @Given("the user is on the '(.*)' page$")
     public void the_user_is_on_the_page(String pageName) {
-        user.is_on_the_page(pageName);
+        user.isOnThePage(pageName);
     }
 }
