@@ -14,6 +14,10 @@ If you want to use local Chrome / Firefox then you need the drivers for these.  
 	brew tap homebrew/cask
 	brew cask install chromedriver
 	brew install geckodriver
+	
+## What it does not do
+These tests use list view to execute the tests. The map view tests are not automated but an attempt made using sikulix 
+library can be found in map view tests.
 
 ## how to run
 
