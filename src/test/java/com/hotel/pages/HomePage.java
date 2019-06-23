@@ -123,7 +123,7 @@ public class HomePage extends CommonPageObject {
 
     public void clickDestinationFromDropDown() {
 
-        withTimeoutOf(5, SECONDS).waitFor(destinationDropDownvalue).click();
+        withTimeoutOf(5, SECONDS).waitFor(destinationDropDownvalue).waitUntilClickable().click();
     }
 
     public String numberOfNightsText() {

@@ -31,6 +31,7 @@ public class HotelListingPage extends CommonPageObject {
 
     private By hotelName = By.className("property-name-link");
     private By hotelPrice = By.className("price-link");
+    private By hotelPriceIfSpecialOffer = By.cssSelector("ins.special-deal-animation");
     private By choseHotelButton = By.className("cta");
 
 
@@ -74,6 +75,9 @@ public class HotelListingPage extends CommonPageObject {
 
     public String getHotelPrice(String hotelId){
         WebElementFacade hotel = hotelListing.findBy("[data-hotel-id='"+ hotelId +"']");
+        if(hotel.findElements(hotelPriceIfSpecialOffer).size() != 0){
+            return hotel.findElement(hotelPriceIfSpecialOffer).getText().replace("£", "");
+        }
         return hotel.findElement(hotelPrice).getText().replace("£", "");
     }
 

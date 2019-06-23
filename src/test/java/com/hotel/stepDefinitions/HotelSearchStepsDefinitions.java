@@ -125,7 +125,6 @@ public class HotelSearchStepsDefinitions {
     @And("the hotel details is same as the previous page")
     public void theHotelDetailsIsSameAsThePreviousPage() {
         hotelDetailsSteps.compareHotelInfoFromListView(currentHotel);
-
     }
 
     @And("the user selects an available hotel from the list")
