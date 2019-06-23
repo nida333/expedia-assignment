@@ -15,6 +15,7 @@ public class HotelDetailsPageSteps {
         String hotelName = hotelDetailsPage.getHotelName();
         String hotelPrice = hotelDetailsPage.getHotelPrice();
         assertThat(hotelName, is(expectedHotel.getName()));
-        assertThat(hotelPrice, is(expectedHotel.getPrice()));
+        assertThat(hotelPrice.replace("£", ""), is(expectedHotel.getPrice()));
+        System.out.print(hotelName + "," + hotelPrice );
     }
 }

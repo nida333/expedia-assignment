@@ -23,7 +23,7 @@ public class HotelDetailsPage extends CommonPageObject {
     }
 
     public String getHotelPrice() {
-        return pricePerNight.getText().replace("£", "");
+        return pricePerNight.getText();
     }
 
 }
