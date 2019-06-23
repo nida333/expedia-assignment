@@ -20,14 +20,6 @@ public abstract class CommonPageObject extends PageObject {
         this.expectedPageTitle = expectedPageTitle;
     }
 
-
-    protected void scrollToElement(WebElementFacade element) {
-        WebDriver driver = getDriver();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
-
-    }
-
     public void switchTab() {
         WebDriver driver = getDriver();
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
