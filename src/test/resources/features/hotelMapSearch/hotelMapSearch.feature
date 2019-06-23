@@ -10,9 +10,7 @@ Feature: Hotel Map Search
     And hotel list is displayed
     When user taps on view on map button
     And the user is on the 'Hotel Map' page
-    And the user selects an available hotel from the list
-    Then the user is on the 'Hotel Details' page
-    And the hotel details is same as the previous page
+
 
     Examples:
       | destination | months | nights |
