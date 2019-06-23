@@ -21,9 +21,22 @@
         <slf4j.version>1.7.25</slf4j.version>
         <tags>e2e</tags>
         <logback.version>1.2.3</logback.version>
+        <webdriver.driver>chrome</webdriver.driver>
         <webdriver.base.url>https://uk.hotels.com/</webdriver.base.url>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>com.sikulix</id>
+            <name>com.sikulix</name>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -73,6 +86,12 @@
             <artifactId>assertj-core</artifactId>
             <version>1.7.0</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sikulix/sikulixapi -->
+        <dependency>
+            <groupId>com.sikulix</groupId>
+            <artifactId>sikulixapi</artifactId>
+            <version>1.1.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

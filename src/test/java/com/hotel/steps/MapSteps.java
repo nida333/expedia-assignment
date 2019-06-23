@@ -1,70 +1,33 @@
 package com.hotel.steps;
 
+import com.hotel.models.Hotel;
 import com.hotel.pages.HotelMapPage;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 
 public class MapSteps {
-    HotelMapPage MapPage;
+    HotelMapPage mapPage;
     SoftAssertions softAssertion = new SoftAssertions();
 
     @Step
-    public void verifiesMapIsDisplayed() {
-        assertThat(MapPage.isMapIframeDisplayed(), is(true));
+    public Hotel selectTheFirstHotel() {
+        mapPage.clickZoomButton();
+        mapPage.clickToggleLegendButton();
+
+        mapPage.clickDoesNotMatchCriteriaLegendCheckbox();
+        mapPage.clickNotAvailableLegendCheckbox();
+
+
+        mapPage.clickFirstHotelMarker();
+        //if(MapPage.isPropertyDetailCardDisplayed()){
+        String HotelName = mapPage.getHotelNameFromPropertyCard();
+        String HotelPrice = mapPage.getRoomPriceFromPropertyCard();
+        mapPage.clickSelectHotelbtn();
+        mapPage.switchTab();
+        //}
+
+        return new Hotel(HotelName, HotelPrice);
     }
 
-    @Step
-    public void verifiesZoomInBtnIsDisplayed() {
-        assertThat(MapPage.isZoomInButtonDisplayed(), is(true));
-    }
-
-    @Step
-    public void comparesZoomInBtnText(String expectedBtnText) {
-        softAssertion.assertThat(MapPage.getZoomInButtonText()).isEqualTo(expectedBtnText);
-    }
-
-    @Step
-    public void clicksZoomBtnUntilDisplayed() {
-        MapPage.clickZoomButton();
-    }
-
-    @Step
-    public void verifiesToggleBtnDisplayed() {
-        assertThat(MapPage.isToggleLegendBtnDisplayed(), is(true));
-    }
-
-    @Step
-    public void clicksToggleButton() {
-        MapPage.clickToggleLegendButton();
-    }
-
-    @Step
-    public void verifiesAvailabilityFilterDisplayed(){
-        MapPage.isAvailaibilityFiltersDisplayed();
-    }
-
-    @Step
-    public void unchecksDoesNotMatchCriteriaCheckbox(){
-        MapPage.clickDoesNotMatchCriteriaLegendCheckbox();
-    }
-
-    @Step
-    public void unchecksNotAvailableLegendCheckbox(){
-        MapPage.clickNotAvailableLegendCheckbox();
-    }
-
-    @Step
-    public void verifesPropertyDetailCardDisplayed(){
-        MapPage.isPropertyDetailCardDisplayed();
-    }
-
-    @Step
-    public void clicksInfoBoxTitle(){
-        assertThat(MapPage.isInfoBoxTitle(), is(true));
-        MapPage.clickInfoBoxTitle();
-    }
 }

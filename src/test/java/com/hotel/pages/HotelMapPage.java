@@ -2,6 +2,10 @@ package com.hotel.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
+
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class HotelMapPage extends CommonPageObject {
 
@@ -11,7 +15,7 @@ public class HotelMapPage extends CommonPageObject {
     @FindBy(xpath = "//*[@id='map']/div[1]/div/iframe")
     private WebElementFacade mapIframe;
 
-    @FindBy(className = "messaging-content")
+    @FindBy(className = "cta-map-zoom")
     private WebElementFacade zooninBtn;
 
     @FindBy(css = ".gm-style > div > div:nth-child(3)")
@@ -41,38 +45,24 @@ public class HotelMapPage extends CommonPageObject {
     @FindBy(className = "map-infobox-title")
     private WebElementFacade infoBoxTitle;
 
+    @FindBy(css = ".map-infobox-cta a")
+    private WebElementFacade selectHotelBtn;
+
     public HotelMapPage() {
         super(EXPECTED_PAGE_TITLE);
     }
 
-
-    public boolean isMapIframeDisplayed() {
-        waitFor(mapIframe);
-        return mapIframe.isDisplayed();
-    }
-
-    public boolean isZoomInButtonDisplayed() {
-        waitFor(zooninBtn);
-        return zooninBtn.isDisplayed();
-    }
-
-    public String getZoomInButtonText() {
-        return zooninBtn.getText();
-    }
-
     public void clickZoomButton() {
 
-        //keep clicking it until legends are displayed
-        //and whole page is loaded
-        zooninBtn.click();
+        if(zooninBtn.isVisible()){
+            zooninBtn.click();
+        }
+
     }
 
-    public boolean isToggleLegendBtnDisplayed() {
-        return toggleLegendBtn.isDisplayed();
-    }
 
     public void clickToggleLegendButton() {
-        toggleLegendBtn.click();
+        withTimeoutOf(15, SECONDS).waitFor(toggleLegendBtn).click();
     }
 
     public boolean isAvailaibilityFiltersDisplayed() {
@@ -81,13 +71,17 @@ public class HotelMapPage extends CommonPageObject {
     }
 
     public void clickDoesNotMatchCriteriaLegendCheckbox() {
-        doesNotMatchLegend.isDisplayed();
-        doesNotMatchLegend.click();
+        if(isAvailaibilityFiltersDisplayed()){
+            doesNotMatchLegend.isDisplayed();
+            doesNotMatchLegend.click();
+        }
     }
 
     public void clickNotAvailableLegendCheckbox() {
-        notAvailableLegend.isDisplayed();
-        notAvailableLegend.click();
+        if(isAvailaibilityFiltersDisplayed()) {
+            notAvailableLegend.isDisplayed();
+            notAvailableLegend.click();
+        }
     }
 
     public boolean isPropertyDetailCardDisplayed() {
@@ -103,12 +97,19 @@ public class HotelMapPage extends CommonPageObject {
         return roomPricePropertyCard.getText();
     }
 
-    public boolean isInfoBoxTitle() {
-        waitFor(infoBoxTitle);
-        return infoBoxTitle.isDisplayed();
+    public void clickFirstHotelMarker(){
+        try{
+            Screen s = new Screen();
+            Pattern setting=new Pattern("src/test/resources/hotel.available.svg");
+            s.wait( setting,5000 );
+            s.click();
+        }catch (Exception ex){
+
+        }
     }
 
-    public void clickInfoBoxTitle() {
-        infoBoxTitle.click();
+    public void clickSelectHotelbtn(){
+        selectHotelBtn.click();
     }
+
 }

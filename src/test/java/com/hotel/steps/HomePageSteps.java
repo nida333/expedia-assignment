@@ -8,98 +8,98 @@ import static org.hamcrest.Matchers.is;
 
 
 public class HomePageSteps {
-    com.hotel.pages.HomePage HomePage;
+    com.hotel.pages.HomePage homePage;
 
     SoftAssertions softAssertion = new SoftAssertions();
 
    @Step
    public void closeWidgetOverlayIfDisplayed(){
-       if(HomePage.isWidgetDisplayed() == true){
-           HomePage.clickWidgetCloseButton();
+       if(homePage.isWidgetDisplayed() == true){
+           homePage.clickWidgetCloseButton();
        }
    }
 
     @Step
     public void verifySearchFormIsDisplayed() {
-       assertThat(HomePage.isSearchFormDisplayed(), is(true));
+       assertThat(homePage.isSearchFormDisplayed(), is(true));
     }
 
     @Step
     public void compareSearchButtonText(String expectedSearchButtonText) {
-        softAssertion.assertThat(HomePage.searchButtonText()).isEqualTo(expectedSearchButtonText);
+        softAssertion.assertThat(homePage.searchButtonText()).isEqualTo(expectedSearchButtonText);
     }
 
     @Step
     public void verifySearchButtonIsDisplayed() {
 
-       assertThat(HomePage.isSearchButtonDisplayed(), is(true));
+       assertThat(homePage.isSearchButtonDisplayed(), is(true));
     }
 
     @Step
     public void compareDestinationLabel(String expectedDestinationLabel) {
-        softAssertion.assertThat(HomePage.destinationLabelText()).isEqualTo(expectedDestinationLabel);
+        softAssertion.assertThat(homePage.destinationLabelText()).isEqualTo(expectedDestinationLabel);
     }
 
     @Step
     public void verifyDestinationFieldIsDisplayed() {
-        assertThat(HomePage.isDestinationTextFieldDisplayed(), is(true));
+        assertThat(homePage.isDestinationTextFieldDisplayed(), is(true));
     }
 
     @Step
     public void compareCheckinDateLabel(String expectedCheckinLabel) {
-        softAssertion.assertThat(HomePage.checkinDateLabelText()).isEqualTo(expectedCheckinLabel);
+        softAssertion.assertThat(homePage.checkinDateLabelText()).isEqualTo(expectedCheckinLabel);
     }
 
     @Step
     public void verifyCheckinDateInputIsDisplayed() {
-        assertThat(HomePage.isCheckinDateFieldDisplayed(), is(true));
+        assertThat(homePage.isCheckinDateFieldDisplayed(), is(true));
     }
 
     @Step
     public void compareCheckoutDateLabel(String expectedCheckoutLabel) {
-        softAssertion.assertThat(HomePage.checkoutDateLabelText()).isEqualTo(expectedCheckoutLabel);
+        softAssertion.assertThat(homePage.checkoutDateLabelText()).isEqualTo(expectedCheckoutLabel);
     }
 
     @Step
     public void verifyCheckoutDateInputIsDisplayed() {
-        assertThat(HomePage.isCheckoutDateFieldDisplayed(), is(true));
+        assertThat(homePage.isCheckoutDateFieldDisplayed(), is(true));
     }
 
     @Step
     public void entersDestination(String destination) {
 
-       HomePage.enterDestination(destination);
+        homePage.enterDestination(destination);
     }
 
     @Step
     public void selectsDestinationFromDropdown() {
 
-       HomePage.clickDestinationFromDropDown();
+        homePage.clickDestinationFromDropDown();
     }
 
     @Step
     public void entersCheckinDate(String checkinDate){
-        HomePage.enterCheckinDate(checkinDate);
+        homePage.enterCheckinDate(checkinDate);
     }
 
     @Step
     public void entersCheckoutDate(String checkoutDate) {
-        HomePage.enterCheckoutDate(checkoutDate);
+        homePage.enterCheckoutDate(checkoutDate);
     }
 
     @Step
     public void closesDatePicker(){
-        HomePage.closeDatePicker();
+        homePage.closeDatePicker();
     }
 
     @Step
     public void verifyNumberOfNights(String expectedNights) {
-        assertThat(HomePage.numberOfNightsText(), is(expectedNights));
+        assertThat(homePage.numberOfNightsText(), is(expectedNights));
     }
 
     @Step
     public void clicksSubmitButton(){
-        HomePage.clickSubmitSearch();
+        homePage.clickSubmitSearch();
 
     }
 }

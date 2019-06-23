@@ -4,6 +4,7 @@ import com.hotel.models.Hotel;
 import com.hotel.steps.HomePageSteps;
 import com.hotel.steps.HotelDetailsPageSteps;
 import com.hotel.steps.HotelListingPageSteps;
+import com.hotel.steps.MapSteps;
 import com.hotel.utils.DatetimeUtils;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -24,6 +25,8 @@ public class HotelSearchStepsDefinitions {
     HotelDetailsPageSteps hotelDetailsSteps;
     @Steps
     HomePageSteps homePageSteps;
+    @Steps
+    MapSteps mapSteps;
 
     public HotelSearchStepsDefinitions(){
         utils = new DatetimeUtils();
@@ -123,5 +126,10 @@ public class HotelSearchStepsDefinitions {
     public void theHotelDetailsIsSameAsThePreviousPage() {
         hotelDetailsSteps.compareHotelInfoFromListView(currentHotel);
 
+    }
+
+    @And("the user selects an available hotel from the list")
+    public void theUserSelectsAnAvailableHotelFromTheList() {
+        currentHotel = mapSteps.selectTheFirstHotel();
     }
 }
